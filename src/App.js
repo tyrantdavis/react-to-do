@@ -15,9 +15,14 @@ class App extends Component {
     };
   }
 
+  handleChange(e) {
+    this.setState({ newTodoDescription: e.target.value })
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    console.log('handleSubmit called');
+    const newTodo = { description: this.state.newTodoDescription, isCompleted: false };
+    this.setState({ todos: [...this.state.todos, newTodo] });
   }
 
   toggleComplete(index) {
@@ -37,7 +42,7 @@ class App extends Component {
           )}
         </ul>
         <form onSubmit={ (e) => this.handleSubmit(e) }>
-          <input type="text" value={ this.state.newTodoDescription }/>
+          <input type="text" value={ this.state.newTodoDescription } onChange={ (e) => this.handleChange(e) }/>
           <input type="submit" />
         </form>
       </div>
