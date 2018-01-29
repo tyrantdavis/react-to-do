@@ -11,7 +11,7 @@ class App extends Component {
         { description: 'Throw the dishes away', isCompleted: false },
         { description: 'Buy new dishes', isCompleted: false }
       ],
-      newToDoDescription: ''
+      newTodoDescription: ' '
     };
   }
 
@@ -22,7 +22,7 @@ class App extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const newTodo = { description: this.state.newTodoDescription, isCompleted: false };
-    this.setState({ todos: [...this.state.todos, newTodo] });
+    this.setState({ todos: [...this.state.todos, newTodo], newTodoDescription: '' });
   }
 
   toggleComplete(index) {
