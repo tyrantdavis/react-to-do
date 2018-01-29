@@ -30,7 +30,7 @@ class App extends Component {
 
           )}
         </ul>
-        <form>
+        <form onSubmit={ (e) => this.handleSubmit(e) }>
           <input type="text" />
           <input type="submit" />
         </form>
